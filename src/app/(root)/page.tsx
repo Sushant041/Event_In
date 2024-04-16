@@ -10,10 +10,10 @@ export default function Home() {
         <div className="wrapper grid grid-cols-1 gap-5 md:grid-cols-2 2xl:gap-0">
           <div className="flex flex-col justify-center gap-8">
             <h1 className="h1-bold">
-              From Concept to Celebration, We've Got You Covered.
+              From Concept to Celebration, We&apos;ve Got You Covered.
             </h1>
             <p className="p-regular-20 md:p-regular-24">
-              Welcome to <strong>Event In</strong> the ultimate solution for event organizers! Whether you're planning a corporate conference, a charity gala, or a birthday bash, our platform is designed to streamline every aspect of event management. From ticketing to promotion, we've got you covered!
+              Welcome to <strong>Event In</strong> the ultimate solution for event organizers! Whether you&apos;re planning a corporate conference, a charity gala, or a birthday bash, our platform is designed to streamline every aspect of event management. From ticketing to promotion, we&apos;ve got you covered!
             </p>
 
             <Button asChild size="lg" className="button w-full sm:w-fit">
