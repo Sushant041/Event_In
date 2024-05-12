@@ -30,3 +30,16 @@ export const headerLinks = [
         href: "/profile",
     },
 ]
+
+export const eventDefaultValues = {
+    title: "",
+    description: "",
+    location: "",
+    imageUrl: "",
+    startDate: new Date(),
+    endDate: new Date(),
+    categoryId: "",
+    price: "",
+    isFree: false,
+    url: "",
+}

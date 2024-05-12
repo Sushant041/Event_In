@@ -4,7 +4,7 @@ import { CreateUserParams, UpdateUserParams } from "@/types"
 import { handleError } from "../utils"
 import { connectToMongo } from "../database"
 import User from "../database/models/userModel"
-import Event from "../database/models/eventMode"
+import Event from "../database/models/eventModel"
 import { revalidatePath } from "next/cache"
 import Order from "../database/models/orderModel"
 

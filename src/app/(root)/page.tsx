@@ -2,11 +2,25 @@ import Image from "next/image";
 import hero from "@/public/assets/images/hero.png"
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { getAllEvents } from "@/lib/actions/eventAction";
+import { SearchParamProps } from '@/types';
+import Collection from "@/components/shared/Collection";
 
-export default function Home() {
+export default async function Home({ searchParams }: SearchParamProps) {
+  const page = Number(searchParams?.page) || 1;
+  const searchText = (searchParams?.query as string) || '';
+  const category = (searchParams?.category as string) || '';
+
+  const events = await getAllEvents({
+    query: searchText,
+    category,
+    page,
+    limit: 6
+  })
+
   return (
     <div>
-      <section className="bg-primary-50 bg-dotted-pattern bg-containe py-5 md:py-10">
+      <section className="bg-slate-50 bg-dotted-pattern bg-containe py-5 md:py-10">
         <div className="wrapper grid grid-cols-1 gap-5 md:grid-cols-2 2xl:gap-0">
           <div className="flex flex-col justify-center gap-8">
             <h1 className="h1-bold">
@@ -28,11 +42,21 @@ export default function Home() {
 
       <section id="events" className=" wrapper my-8flex flex-col gap-8 md:gap-12">
         <h2 className="h2-bold">
-          Trusted by <br /> Thousands of Event Organizers
+          Trusted by Thousands of Event Organizers
         </h2>
         <div className="flex w-full flex-col gap-5 md:flex-row">
           search categories
         </div>
+
+        <Collection 
+          data={events?.data}
+          emptyTitle="No Events Found"
+          emptyStateSubtext="Come back later"
+          collectionType="All_Events"
+          limit={6}
+          page={page}
+          totalPages={events?.totalPages}
+        />
       </section>
     </div>
   );
