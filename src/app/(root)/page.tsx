@@ -5,6 +5,8 @@ import Link from "next/link";
 import { getAllEvents } from "@/lib/actions/eventAction";
 import { SearchParamProps } from '@/types';
 import Collection from "@/components/shared/Collection";
+import Search from "@/components/shared/Search";
+import CategoryFilter from "@/components/shared/CategoryFilter";
 
 export default async function Home({ searchParams }: SearchParamProps) {
   const page = Number(searchParams?.page) || 1;
@@ -44,8 +46,9 @@ export default async function Home({ searchParams }: SearchParamProps) {
         <h2 className="h2-bold">
           Trusted by Thousands of Event Organizers
         </h2>
-        <div className="flex w-full flex-col gap-5 md:flex-row">
-          search categories
+        <div className="flex w-full flex-col gap-5 my-5 md:flex-row">
+          <Search />
+          <CategoryFilter />
         </div>
 
         <Collection 
